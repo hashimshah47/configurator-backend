@@ -5,7 +5,14 @@ require('dotenv').config()
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-app.use(cors());
+// CORS configuration
+const corsOptions = {
+  origin: 'https://localhost:5173', // Allow your frontend origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
