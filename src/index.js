@@ -6,16 +6,17 @@ require('dotenv').config()
 const app = express();
 const PORT = process.env.PORT || 5000;
 // CORS configuration
-const corsOptions = {
-  origin: 'https://localhost:5173', // Allow your frontend origin
+// const corsOptions = {
+//   origin: 'https://localhost:5173', // Allow your frontend origin
 
-  credentials:true,            //access-control-allow-credentials:true
-  optionSuccessStatus:200
-  // methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  // allowedHeaders: ['Content-Type', 'Authorization'],
-};
+//   credentials:true,            //access-control-allow-credentials:true
+//   optionSuccessStatus:200
+//   // methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//   // allowedHeaders: ['Content-Type', 'Authorization'],
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.use(cors())
 app.use(express.json());
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
