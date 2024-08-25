@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
+app.get("/", (req, res) => res.send("Express on Vercel"));
 require('./routes/auth.route')(app)
 require('./routes/user.route')(app)
 require('./routes/configuration.route')(app)
