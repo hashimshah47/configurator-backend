@@ -20,9 +20,18 @@ exports.getUserModels = async(req, res) => {
     });
 }
 
+exports.getModelById = async(req, res) => {
+  const configuredModel = await Configuration.findOne({
+      _id: req.query.project_id,
+    })
+    res.status(200).send({
+      configuredModel
+    });
+}
+
 exports.deleteModel = async(req, res) => {
   const model = await Configuration.deleteOne({
-    id: req.query.model_id
+    _id: req.query.project_id
   })
   res.status(200).send({msg: "Model Deleted"})
 }

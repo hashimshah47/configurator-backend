@@ -1,4 +1,7 @@
 const db = require("../models");
+const jwt = require('jsonwebtoken');
+
+
 const User = db.user;
 var bcrypt = require("bcryptjs");
 exports.signup = async (req, res) => {
@@ -29,11 +32,19 @@ exports.signin = async (req, res) => {
     if (!passwordIsValid) {
         return res.status(404).send({ message: "Invalid Password!" });
     }
-    res.status(200).send({
-        id: user._id,
-        username: user.username,
-        email: user.email
-    });
+      // Generate JWT Token
+  const token = jwt.sign(
+    { id: user._id, username: user.username, email: user.email },
+    process.env.JWT_SECRET,
+    { expiresIn: '1h' }
+  );
+
+  res.status(200).json({ token });
+    // res.status(200).send({
+    //     id: user._id,
+    //     username: user.username,
+    //     email: user.email
+    // });
 }
 
 
