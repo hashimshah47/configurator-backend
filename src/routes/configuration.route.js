@@ -5,4 +5,6 @@ module.exports = function(app) {
   app.get("/api/get-user-models", controller.getUserModels)
   app.get("/api/get-model", controller.getModelById)
   app.delete("/api/delete-user-model", controller.deleteModel)
+  app.get("/api/get-all-models", controller.getAllModels)
+
 };

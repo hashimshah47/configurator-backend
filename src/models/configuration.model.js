@@ -4,6 +4,7 @@ const modelSchema = new mongoose.Schema({
     rotation: [],
     position: [],
     shape: String,
+    price: Number
   });
   
 const Configuration = mongoose.model("Configuration", new mongoose.Schema({
@@ -14,7 +15,7 @@ const Configuration = mongoose.model("Configuration", new mongoose.Schema({
         ref: "User", 
         required: true, 
         },
-    projectName: String
+    projectName: String,
     }),
 );
 

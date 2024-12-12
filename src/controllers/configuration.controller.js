@@ -29,6 +29,14 @@ exports.getModelById = async(req, res) => {
     });
 }
 
+exports.getAllModels = async(req, res) => {
+  const models = await Configuration.find().populate("user_id", "-password")
+    res.status(200).send({
+      models
+    });
+}
+
+
 exports.deleteModel = async(req, res) => {
   const model = await Configuration.deleteOne({
     _id: req.query.project_id

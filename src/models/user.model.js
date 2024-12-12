@@ -6,6 +6,7 @@ const User = mongoose.model("User", new mongoose.Schema({
     password: String,
     company: String,
     marketing:Boolean,
+    isAdmin: Boolean,
   })
 );
 
