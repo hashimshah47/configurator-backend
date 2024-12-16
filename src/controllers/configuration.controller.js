@@ -36,10 +36,16 @@ exports.getAllModels = async(req, res) => {
     });
 }
 
-
 exports.deleteModel = async(req, res) => {
-  const model = await Configuration.deleteOne({
+  await Configuration.deleteOne({
     _id: req.query.project_id
   })
   res.status(200).send({msg: "Model Deleted"})
+}
+
+exports.loadModel = async(req, res) => {
+  const model = await Configuration.findOne({
+    _id: req.query.model_id
+  })
+  res.status(200).send({msg: "Model Loaded Successfully", model: model})
 }
