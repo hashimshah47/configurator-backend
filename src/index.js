@@ -22,6 +22,8 @@ app.use(express.json());
 
 app.get("/", (req, res) => res.send("Express on Vercel"));
 app.use('/models', express.static(path.join(__dirname, '3dmodels')));
+app.use('/thumbnails', express.static(path.join(__dirname, 'thumbnails')));
+
 require('./routes/auth.route')(app)
 require('./routes/user.route')(app)
 require('./routes/configuration.route')(app)
