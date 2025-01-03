@@ -27,6 +27,7 @@ app.use('/thumbnails', express.static(path.join(__dirname, 'thumbnails')));
 require('./routes/auth.route')(app)
 require('./routes/user.route')(app)
 require('./routes/configuration.route')(app)
+require('./routes/model.route')(app)
 
 
 

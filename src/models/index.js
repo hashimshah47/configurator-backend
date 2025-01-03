@@ -7,6 +7,8 @@ db.mongoose = mongoose;
 
 db.user = require("./user.model");
 db.configuration = require("./configuration.model");
+db.model = require("./model.model");
+
 
 // db.role = require("./role.model");
 
