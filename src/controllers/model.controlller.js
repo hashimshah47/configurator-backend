@@ -59,7 +59,7 @@ exports.updateModelPrice = async (req, res) => {
 };
 
 
-// Read and Save Excel Data
+// // Read and Save Excel Data
 // exports.updateModelPrice = async () => {
 //     try {
 // const workbook = xlsx.readFile(path.resolve(__dirname, 'ModelsRETISOFT.xlsx'));
@@ -74,22 +74,28 @@ exports.updateModelPrice = async (req, res) => {
 //             const modelName = record['Model']; // Access ModelName
 //             // const number = record['No.']; // Ac
 
-//             const number = String(record['No.']).padStart(3, '0')
+//             const category = record["Category"]
+//             const company = record["Company"]
+
+//             // const number = String(record['No.']).padStart(3, '0')
 //             // Save or update the record in the database
-//             // await Model.findOneAndUpdate(
-//             //     { name: modelName },
-//             //     {number: number},
-//             //     { $set: { price: 10 } },
-//             //     { upsert: true, new: true }
-//             // );
+//             await Model.findOneAndUpdate(
+//                 { name: modelName },
+//                 { $set: {
+//                      company: company,
+//                     category: category
+//                 }
+//                 },
+//                 { upsert: true, new: true }
+//             );
 
-//                 const newModel = new Model({
-//                 number: number,
-//                 name: modelName, // Use a placeholder name; adjust as needed
-//                 price: 10,
-//             });
+//             //     const newModel = new Model({
+//             //     number: number,
+//             //     name: modelName, // Use a placeholder name; adjust as needed
+//             //     price: 10,
+//             // });
 
-//             await newModel.save();
+//             // await newModel.save();
 //         }
 
 //         console.log('Excel data saved to MongoDB successfully!');
